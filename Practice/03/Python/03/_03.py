@@ -1,0 +1,6 @@
+x = int(input("Введите значение х:"))
+y = int(input("Введите значение y:"))
+print("x + y = ", x+y ,"\n") 
+print("x - y = ", x-y ,"\n")
+print("x * y = ", x*y ,"\n") 
+print("x / y = ", x/y) 
