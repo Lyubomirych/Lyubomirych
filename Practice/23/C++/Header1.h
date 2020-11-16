@@ -5,7 +5,6 @@ int fact(int n)
     for (i = 1; i <= n; i++)
     {
         fact = fact * i;  
-        std::cout << i << " " << fact << "\n";
            
     }
 return fact;

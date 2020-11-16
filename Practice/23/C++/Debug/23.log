@@ -1,3 +1,4 @@
 ﻿  23.cpp
-C:\Users\Пользователь\Desktop\задачи\23\С++\23\Header2.h(8,21): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Пользователь\Desktop\задачи\23\С++\23\Header2.h(12,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Пользователь\Desktop\задачи\23\С++\23\23.cpp(29,48): warning C4305: +=: усечение из "double" в "float"
   23.vcxproj -> C:\Users\Пользователь\Desktop\задачи\23\С++\23\Debug\23.exe
