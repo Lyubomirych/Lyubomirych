@@ -1,4 +1,0 @@
-C:\Users\Пользователь\Desktop\задачи\15\c++\15\Debug\15.exe
-C:\Users\Пользователь\Desktop\задачи\15\c++\15\Debug\15.pdb
-C:\Users\Пользователь\Desktop\copy\Programming\Practice\15\C++\Debug\15.exe
-C:\Users\Пользователь\Desktop\copy\Programming\Practice\15\C++\Debug\15.pdb

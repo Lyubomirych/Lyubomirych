@@ -1,4 +1,0 @@
-C:\Users\Пользователь\Desktop\задачи\07\c++\07\Debug\07.exe
-C:\Users\Пользователь\Desktop\задачи\07\c++\07\Debug\07.pdb
-C:\Users\Пользователь\Desktop\Programming\Practice\07\C++\Debug\07.exe
-C:\Users\Пользователь\Desktop\Programming\Practice\07\C++\Debug\07.pdb
