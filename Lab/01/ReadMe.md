@@ -53,7 +53,7 @@ http://worldtimeapi.org/api/timezone/Europe/Simferopol
 
 Рисунок 1 - запущенная программа ngrok
 
-![](./image/2.png)
+![](./image/2.PNG)
 
 Рисунок 2 - проверка работы туннеля подключением со смартфона
 
