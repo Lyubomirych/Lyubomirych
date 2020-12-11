@@ -5,113 +5,128 @@
 #include <vector>
 
 using namespace  std;
+typedef vector<int> new_vector;
+typedef vector<vector<int>> new_matrix;
 
-int BozoSort(vector <int> v, int a )
+bool sort(new_vector v, bool direction = true)//--------------------------------------------------------------------------------по умолчанию
 {
-	bool sorted = false; 
-	while (!sorted) {
-		int index1 = rand() % a;
-		int index2 = rand() % a;
-		int temp = v[index2];
-		v[index2] = v[index1];
-		v[index1] = temp;
-		sorted = true;
-		for (int i = 1; i < a; i++) {
+	int vect_len = v.size();
+	if (direction) {
+		for (int i = 1; i < vect_len; i++) {
+
 			if (v[i - 1] > v[i]) {
-				sorted = false;
-				break;
+				return false;
 			}
 		}
 	}
-	for (int i = 0; i < a; i++)
-	{
-		cout << v[i] << " ";
-	}
-	cout << "\n";
-	sorted = false; 
-	while (!sorted) {
-		int index1 = rand() % a;
-		int index2 = rand() % a;
-		int temp = v[index2];
-		v[index2] = v[index1];
-		v[index1] = temp;
-		sorted = true;
-		for (int i = 1; i < a; i++) {
-			if (v[i] > v[i-1]) {
-				sorted = false;
-				break;
+	else {
+		for (int i = 1; i < vect_len; i++) {
+
+			if (v[i - 1] < v[i]) {
+				return false;
 			}
 		}
 	}
-	for (int i = 0; i < a; i++)
-	{
-		cout << v[i] << " ";
-	}
-    return 0;
+	return true;
 }
 
-int BozoSort(int x, int y, int z)
-{
-    int arr[3] = { x, y, z };
-	    bool sorted = false; 
-	    while (!sorted) {
-		    int index1 = rand()%3;
-		    int index2 = rand()%3;
-		    int temp = arr[index2];
-		    arr[index2] = arr[index1];
-		    arr[index1] = temp;
-		    sorted = true;
-		    for (int i = 1; i < 3; i++) {
-			    if (arr[i - 1] > arr[i]) {
-				    sorted = false;
-				    break;
-			    }
-		    }
-	    }
-    for (int i = 0; i < 3; i++)
-        {
-            cout << arr[i] << " ";
-        }
-	cout << "\n";
-	sorted = false;
-	while (!sorted) {
-		int index1 = rand() % 3;
-		int index2 = rand() % 3;
-		int temp = arr[index2];
-		arr[index2] = arr[index1];
-		arr[index1] = temp;
-		sorted = true;
-		for (int i = 1; i < 3; i++) {
-			if (arr[i] > arr[i - 1]) {
-				sorted = false;
-				break;
-			}
+new_vector BozoSort(new_matrix v_dvumer, bool direction = true) { //----------------------------------------------------------------------Матрица
+	new_vector v_dvumer2;
+	for (new_vector i : v_dvumer) {
+		for (int j : i) {
+			v_dvumer2.push_back(j);
 		}
 	}
-	for (int i = 0; i < 3; i++)
+	int vect_len = v_dvumer2.size();
+	while (!sort(v_dvumer2, direction))
 	{
-		cout << arr[i] << " ";
+		int index1 = rand() % vect_len;
+		int index2 = rand() % vect_len;
+		int temp = v_dvumer2[index2];
+		v_dvumer2[index2] = v_dvumer2[index1];
+		v_dvumer2[index1] = temp;
+
 	}
-    return 0;
+	return v_dvumer2;
+}
+
+new_vector BozoSort(vector <int> v, bool direction = true) //-------------------------------------------------------------------------------------------------------------вектор
+{
+	int vect_len = v.size();
+	while (!sort(v, direction))
+	{
+		int index1 = rand() % vect_len;
+		int index2 = rand() % vect_len;
+		int temp = v[index2];
+		v[index2] = v[index1];
+		v[index1] = temp;
+
+	}
+	return v;
+}
+	
+
+new_vector BozoSort(int x, int y, int z, bool direction = true) //-------------------------------------------------------------------------------------------------------------3 числа
+{
+	new_vector v3;
+	v3 = { x, y, z };
+	int vect_len = v3.size();
+	    while (!sort(v3, direction)) {
+		    int index1 = rand() % vect_len;
+		    int index2 = rand() % vect_len;
+		    int temp = v3[index2];
+		    v3[index2] = v3[index1];
+		    v3[index1] = temp;
+	    }
+
+    return v3;
 }
 int main()
 {
     setlocale(0, "");
-    int a, k = 0, element;
-    vector <int> v;
-    vector<vector<int>>vec;
-    cout << "Введите количество элементов от 4 до 100, из которых можно \n";
+    int a, element;
+	new_vector v;				//вектор
+	new_matrix vector_matrix;	//двумерный массив
+	new_vector formatrix;		//для внесения элементов в двумерный
+    cout << "Введите количество элементов от 4 до 100, из которых можно извлечь целый квадратный корень:\n";
     cin >> a; 
-    while (k != a) 
+    cout << "введите элементы через пробел: ";
+	for (int i = 1; i <= a; i++)
     {
-        cout << "введите элемент: ";
-        cin >> element;
-        v.push_back(element); 
-        k++;
+		int element;
+		cin >> element;
+		v.push_back(element);
+		formatrix.push_back(element);
+		if (i % int(std::sqrt(a)) == 0)
+		{
+			vector_matrix.push_back(formatrix);
+			formatrix.clear();
+		}
     }
-    BozoSort(v, a);
-    cout << "\n";
-    //BozoSort(vec, a);
-    BozoSort(v[0], v[1], v[2]);
+
+	for (int i : BozoSort(v, true)) {                                  //вызовы функций с различными аргументами
+		cout << i << " ";
+	}
+	cout << endl;
+	for (int i : BozoSort(v, false)) {
+		cout << i << " ";
+	}
+	cout << endl;
+	for (int i : BozoSort(vector_matrix, true)) {
+		cout << i << " ";
+	}
+	cout << endl;
+	for (int i : BozoSort(vector_matrix, false)) {
+		cout << i << " ";
+	}
+	cout << endl;
+	for (int i : BozoSort(v[0], v[1], v[2], true)) {
+		cout << i << " ";
+	}
+	cout << endl;
+	for (int i : BozoSort(v[0], v[1], v[2], false)) {
+		cout << i << " ";
+	}
+	cout << endl;
 }
 
