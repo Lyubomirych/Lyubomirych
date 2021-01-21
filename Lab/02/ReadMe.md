@@ -217,7 +217,7 @@ int main(int argc, char** argv)
 	}
 }
 ```
-Подключаемые файлы post_root.cpp и post_webhooks.cpp располагаются в папке [[C++]](./C++/)
+Подключаемые файлы [[post_root]](./C++/post_root.cpp)  [[post_webhooks]](./C++/post_webhooks.cpp)
 
 Исходный код Python:
 ```python
