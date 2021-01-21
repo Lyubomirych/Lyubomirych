@@ -7,21 +7,23 @@ def reload_data(event=None):
 		response = requests.get('http://localhost:3000/raw').content.decode("utf8")
 		forecast_j = json.loads(response)
 		desc.config(text=str(forecast_j["description"]))
-		temp.config(text=str(forecast_j["temp"]) + "°C")
+		weather.config(text=str(forecast_j["temp"]) + "°C")
 	except requests.exceptions.ConnectionError:
 		pass
+
 root = Tk()
 root.title("Погода")
 root.pack_propagate(0)
 root.bind("<Button-1>", reload_data)
+
 zheltiy = "#ffb84d"
 beliy = "#ffffff"
 _w = 100
 _h = 30
 
-top_frame =    Frame(root, bg=_yellow, width=_w, height=_h)
-middle_frame = Frame(root, bg=_white,  width=_w, height=_h*3)
-bottom_frame = Frame(root, bg=_yellow, width=_w, height=_h)
+top_frame = Frame(root, bg=zheltiy, width=_w, height=_h)
+middle_frame = Frame(root, bg=beliy,  width=_w, height=_h*3)
+bottom_frame = Frame(root, bg=zheltiy, width=_w, height=_h)
 
 top_frame.pack(side=TOP, fill=X)
 middle_frame.pack(expand=True, fill=BOTH)

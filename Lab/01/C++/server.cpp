@@ -172,8 +172,8 @@ void gen_response_raw(const Request& req, Response& res) {
 			j3["description"] = cache[0]["weather"][0]["description"];
 
 			prover = 0;
-
-			res.set_content(j3, "text/json");
+			std::cout << j3;
+			res.set_content(j3.dump(), "text/json");
 		}
 	}
 }
