@@ -217,7 +217,7 @@ int main(int argc, char** argv)
 	}
 }
 ```
-Подключаемые файлы располагаются по ссылкам: [[Post_root]](Programming/Lab/02/C++/post_root.cpp) [[Post_webhooks]](Programming/Lab/02/C++/post_webhooks.cpp)
+Подключаемые файлы post_root.cpp и post_webhooks.cpp располагаются в папке [[C++]](./Lab/01/C++/)
 
 Исходный код Python:
 ```python
