@@ -204,6 +204,7 @@ int main(int argc, char** argv)
 		config_read(); 
 
 		server.Post("/", post_root_handler); 
+		server.Get("/webhooks", post_webhooks_handler);
 		server.Post("/webhooks", post_webhooks_handler);
 
 		cout << "Server served on localhost:" << SERVER_PORT << "\n";
@@ -216,6 +217,7 @@ int main(int argc, char** argv)
 	}
 }
 ```
+Подключаемые файлы [[post_root]](./C++/post_root.cpp)  [[post_webhooks]](./C++/post_webhooks.cpp)
 
 Исходный код Python:
 ```python
