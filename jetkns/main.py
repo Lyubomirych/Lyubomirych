@@ -4,6 +4,10 @@ from flask import Flask
 from flask import request
 from io import BytesIO
 
+
+#-----------------------------------------------------------------IZMENENIA
+
+
 app = Flask(__name__)
 
 @app.route("/")
